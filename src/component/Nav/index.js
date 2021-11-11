@@ -16,6 +16,8 @@ const Nav = () => {
         <div className="nav">
             <ul>
                 <li> <Link to ="/Music">Music</Link></li>
+                <li> <Link to ="/Podcast">Music</Link></li>
+
             </ul>
         </div>
     )
