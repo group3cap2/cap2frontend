@@ -1,7 +1,7 @@
 import React from "react";
 import "./style.css";
 
-const All = () => {
+const ShortFilm = () => {
 
     return (
       <div>
@@ -9,5 +9,5 @@ const All = () => {
         </div>
     );
   }
-  export default All;
+  export default ShortFilm;
   
