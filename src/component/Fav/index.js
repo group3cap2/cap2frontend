@@ -1,6 +1,6 @@
 import React from "react";
 
-const Music = () => {
+const Fav = () => {
 
 
     return (
@@ -10,4 +10,4 @@ const Music = () => {
 )}
 
 
-export default Music;
+export default Fav;
