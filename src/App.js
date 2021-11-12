@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState, useEffect} from "react";
 import axios from "axios";
 import {Route ,Routes } from "react-router-dom"
 import Nav from "./component/Nav";
@@ -8,21 +8,21 @@ import Movie from "./component/Movie";
 import Music from "./component/Music";
 import MusicVideo from "./component/MusicVideo";
 import Podcast from "./component/Podcast";
-import ShortFilm from "./component/ShortFilm";
-import Software from "./component/Software";
-import TvShow from "./component/TvShow";
+import Software from "./component/User";
 import Ebook from "./component/Ebook";
-
-
-
-
-
+import Fav from "./component/Fav";
+import User from "./component/User";
 import "./App.css";
+
 
 const App = () => {
 
   return (
     <>
+    <div className="App">
+
+    </div>
+
       <Nav />
       <Routes>
       <Route exact path="/All" element={<All/>} />
@@ -31,13 +31,14 @@ const App = () => {
       <Route exact path="/Music" element={<Music/>} />
       <Route exact path="/MusicVideo" element={<MusicVideo/>} />
       <Route exact path="/Podcast" element={<Podcast/>} />
-      <Route exact path="/ShortFilm" element={<ShortFilm/>} />
       <Route exact path="/Software" element={<Software/>} />
-      <Route exact path="/TvShow" element={<TvShow/>} />
+      <Route exact path="/User" element={<User/>} />
       <Route exact path="/Ebook" element={<Ebook/>} />
+      <Route exact path="/Fav" element={<Fav/>} />
 
       </Routes>
       </>
   );
 }
+
 export default App;

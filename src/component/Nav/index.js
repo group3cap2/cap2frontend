@@ -21,10 +21,11 @@ const Nav = () => {
                 <li> <Link to ="/Movie">Movie</Link></li>
                 <li> <Link to ="/MusicVideo">Music Video</Link></li>
                 <li> <Link to ="/Audiobook">Audio Book</Link></li>
-                <li> <Link to ="/ShortFilm">Short Film</Link></li>
-                <li> <Link to ="/TvShow">tv Show</Link></li>
                 <li> <Link to ="/Software">software</Link></li>
                 <li> <Link to ="/Ebook">ebook</Link></li>
+                <li> <Link to ="/Fav">You Love</Link></li>
+                <li> <Link to ="/User">User</Link></li>
+
 
 
 

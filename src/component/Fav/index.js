@@ -1,7 +1,7 @@
 import React from "react";
 import "./style.css";
 
-const ShortFilm = () => {
+const Fav = () => {
 
     return (
       <div>
@@ -9,5 +9,5 @@ const ShortFilm = () => {
         </div>
     );
   }
-  export default ShortFilm;
+  export default Fav;
   
