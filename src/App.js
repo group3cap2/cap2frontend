@@ -1,5 +1,6 @@
 import React from "react";
 import axios from "axios";
+
 import { Route, Routes } from "react-router-dom"
 import Nav from "./component/Nav";
 import Music from "./component/Music";
@@ -12,12 +13,18 @@ import Fav from './component/Fav';
 import "./App.css";
 
 
+
+
+
+import "./App.css";
+
 const App = () => {
 
   return (
     <>
       <Nav />
       <Routes>
+
       <Route  exact path="/" element={<Home/>} />
       <Route  exact path="/Podcast" element={<Podcast/>} />
       <Route  exact path="/Ebook" element={<Ebook/>} />
@@ -25,6 +32,7 @@ const App = () => {
       <Route  exact path="/Login" element={<Login/>} />
       <Route  exact path="/Search" element={<Search/>} />
       <Route  exact path="/Fav" element={<Fav/>} /> 
+
       </Routes>
       </>
   );

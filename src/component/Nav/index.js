@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { useNavigate } from 'react-router';
-
+import "./style.css";
 
 
 
@@ -14,6 +14,7 @@ const Nav = () => {
 
     return (
         <div className="nav">
+
             <ul className="ulNav">
                 <li> <Link to ="/">All</Link></li>
                 <li> <Link to ="/Music">Music</Link></li>
@@ -21,8 +22,6 @@ const Nav = () => {
                 <li> <Link to ="/Users">User</Link></li>
                 <li> <Link to ="/Fav">You Love</Link></li>
                 <li> <Link to ="/Search">Search</Link></li>
-
-
 
             </ul>
         </div>
