@@ -22,6 +22,7 @@ const Nav = () => {
                 <li> <Link to ="/Users">User</Link></li>
                 <li> <Link to ="/Fav">You Love</Link></li>
                 <li> <Link to ="/Search">Search</Link></li>
+                <li> <Link to ="/Login">Login</Link></li>
 
             </ul>
         </div>
