@@ -4,8 +4,10 @@ const Search = () => {
 
 
     return (
-        <div className="Music">
-            
+        <div className="search">
+           <input />
+            <button  placeholder="Search">Search</button>
+
             </div>
 )}
 
