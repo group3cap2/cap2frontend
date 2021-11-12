@@ -13,11 +13,12 @@ const Podcast = () => {
 
   const getPodcast = async () => {
     const response = await axios.get(
-      "http://itunes.apple.com/search?term=s&country=sa&media=podcast&limit=15"
+      "http://localhost:5000/media/podcast"
     );
-    console.log(response.data.results);
     setPodcast(response.data.results);
     console.log(response.data.results);
   };
+  return(<>  
+  {podcast.map((item)=><img src={item.artworkUrl30}/>)}</>)
 }
 export default Podcast;
