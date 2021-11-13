@@ -1,6 +1,4 @@
 import React from "react";
-import axios from "axios";
-
 import { Route, Routes } from "react-router-dom";
 import Nav from "./component/Nav";
 import Music from "./component/Music";
@@ -8,10 +6,10 @@ import Home from "./component/Home";
 import Podcast from "./component/Podcast";
 import Movie from "./component/Movie";
 import Ebook from "./component/Ebook";
-// import Login from './component/Login';
 import Fav from "./component/Fav";
+import Card from "./component/Card";
+import Dec from "./component/Dec";
 import "./App.css";
-import Pod from "./component/Pod";
 
 const App = () => {
   return (
@@ -23,9 +21,10 @@ const App = () => {
         <Route exact path="/Ebook" element={<Ebook />} />
         <Route exact path="/Music" element={<Music />} />
         <Route exact path="/Movie" element={<Movie />} />
-        <Route exact path="/pod/:trackId" element={<Pod />} />
-        {/*<Route  exact path="/Login" element={<Login/>} /> */}
+        <Route exact path="/Card/:trackId" element={<Card />} />
+        <Route exact path="/dec/:trackId" element={<Dec />} />
         <Route exact path="/Fav" element={<Fav />} />
+        {/*<Route  exact path="/Login" element={<Login/>} /> */}
       </Routes>
     </>
   );
