@@ -7,6 +7,7 @@ import "./style.css";
 
 const Podcast = () => {
     const [podcast, setPodcast] = useState([]);
+    const [sound] = useState( typeof Audio !== "undefined" && new Audio(Sound));
     const navigate = useNavigate();
 
 
