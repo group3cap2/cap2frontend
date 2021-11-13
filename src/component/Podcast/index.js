@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router";
-import Card from "./../Card";
+// import Card from "./../Card";
 import axios from "axios";
 import "./style.css";
 // import Modal from "react-modal"
@@ -23,10 +23,12 @@ const Podcast = () => {
 
   const inside = (id) => {
     console.log(id);
-    navigate(`/dec/${id}`);
+    navigate(`/Dec/${id}`);
   };
 
+  // eslint-disable-next-line
   const addFav = (id) => {
+    // eslint-disable-next-line
     podcast.map((item) => {
       if (id === item.trackId) {
         if (toggle === true) {
@@ -50,19 +52,28 @@ const Podcast = () => {
 
   return (
     <div className="allPodcast">
+      
       {podcast.map((item, i) => {
         return (
-          <div
+          <div className="pod"
             key={i}
-            // onClick={() => {
-            //   inside(item.trackId);
-            // }}
+            onClick={() => {
+              inside(item.trackId);
+            }}
           >
-            <Card
-              item={item}
-              addFav={() => addFav(item.trackId)}
-              toggle={toggle}
-            />
+
+            <img src={item.artworkUrl100} alt="movie" />
+            <h4> {item.trackName} </h4>
+            <h3> {item.artistName} </h3>
+
+            {/* <div>
+             {/*  <button
+                onClick={() => {
+                  addFav(item.trackId);
+                }}>
+                Add to Favorite
+              </button>{" "}
+              </div> */}
           </div>
         );
       })}

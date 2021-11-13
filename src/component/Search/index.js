@@ -25,13 +25,13 @@ const Search = () => {
           onKeyDown={ getSearched }
           autoFocus
           id="search"
-          placeholder="search..."
+          placeholder="Search Book or Podcast"
           type="text"
           className="search"
         />
-        <button onClick={ getSearched } placeholder="Search">
+        {/*<button onClick={ getSearched } placeholder="Search">
           Search
-        </button>
+  </button>*/}
       </div>
       <div className="searchCon">
         {result.map((item) => (

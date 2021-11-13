@@ -1,4 +1,4 @@
-.allMedia {
+.allbook {
   display: flex;  
   justify-content: center;
   flex-wrap: wrap;
@@ -7,7 +7,7 @@
  
 }
 
-.allMedia:hover{
+.allbook:hover{
  cursor: pointer;
  
 }
@@ -20,7 +20,7 @@
 } */
 
 
-.all{
+.pod{
   width: 200px;
   height: 310px;
   margin: 15px;
@@ -29,11 +29,11 @@
   align-items: center;
 }
 
-.allMedia div:hover {
+.allbook div:hover {
   transform: scale(1.04) perspective(0.1px);
 }
 
-.allMedia div img {
+.allbook div img {
   margin-top: 30px;
   width: 100%;
   height: 300px;

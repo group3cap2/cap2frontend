@@ -5,13 +5,13 @@ import "./style.css";
 
 const Home = () => {
 
-        const [allMedia, setMedia] = useState([]);
+       const [allMedia, setMedia] = useState([]);
         const navigate = useNavigate();
       useEffect(() => {
         getAllmedia();
       }, []);
       const getAllmedia = async () => {
-          const response = await axios.get("http://localhost:5000/media");
+          const response = await axios.get("http://localhost:5000/media/AudioBook");
     
         // console.log(response.data.results);
         setMedia(response.data.results);
@@ -22,9 +22,9 @@ const Home = () => {
           navigate(`/allmedia/${id}`)
       }
     
-      const addFav = (id) => {
-          console.log(id);
-      }
+     // const addFav = (id) => {
+      //    console.log(id);
+     // }
     
       return (
         <div className="allMedia">
@@ -39,20 +39,20 @@ const Home = () => {
                   className="PodImg"
                   src={all.artworkUrl100}
                   alt="all"/>
-    
-             <h6> {all.trackName} </h6>
+                  <h4> {all.collectionName} </h4>
+                  <h3> {all.artistName} </h3>
              </div>
-             <div>
+             { /* <div>
                  <button
                     onClick={() => {
                       addFav(all.trackId);
                     }}> Add to Favorite </button>{" "}
-             </div>
+                  </div> */}
              </div>
                 );
                 })}
-            </div>
-            );
+            </div> 
+            ); 
             }
     
 export default Home;
