@@ -11,32 +11,62 @@
  cursor: pointer;
  
 }
-/* .allMovies div  {
-  width: 200px;
-  height: 300px;   
-  margin: 15px; 
-  padding: 15px;
-  background-color: rgba(167, 156, 156, 0.061);
-} */
 
-h5{
+
+ h4 {
   display: inline;
+  font-weight: 576;
+  margin-top: 2rem;
+  margin-bottom: 8px;
+  font-size: 20px;
+  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif ;
+  color: rgba(165, 165, 165, 0.283);
+  width: 300px;
+  height: 250%;
+  color: #666666;
+
+
 }
+
+h3 {
+  font-size: 15px;
+  color: rgba(165, 165, 165, 0.283);
+  width: 100%;
+  margin-bottom: 3rem;
+
+
+
+}
+
 .Pod{
   width: 200px;
   height: 310px;
-  margin: 15px;
-  padding-bottom: 80px;
+  padding: 0rem 6.2rem 5rem 0rem;
   transition: 0.5s ease; 
   align-items: center;
+  margin: 4rem;
 }
 
 .allPodcast div:hover {
   transform: scale(1.04) perspective(0.1px);
 }
 
-.allPodcast div img {
-    margin-top: 30px;
-    width: 100%;
-    height: 100%;
+img {
+    width: 300px;
+    height: 250%;
+}
+
+.btn {
+  background-color: #262626;;
+  border: 2px solid #262626c2;;
+  color: #666666;
+  padding: 16px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+  border-radius: 1.5rem;
+  
 }
