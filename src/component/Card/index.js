@@ -4,18 +4,6 @@ import "./style.css";
 
 function Card({ item }) {
   const id = useParams().trackId;
-  // const [pod, setPod] = useState("");
-  // let navigate = useNavigate();
-
-  // const getPodcast = async () => {
-  //   const response = await axios.get("http://localhost:5000/media/podcast");
-
-  //   setPod(response.data.results.find((elem) => elem.trackId == id));
-  // };
-
-  // useEffect(() => {
-  //   getPodcast();
-  // }, []);
 
   return (
     <div className="Pod">
