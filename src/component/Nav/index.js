@@ -32,7 +32,7 @@ const Nav = () => {
           <Link to="/Movie">Movies</Link>
         </li>
         <li className={splitLocation[1] === "Fav" ? "active" : ""}>
-          <Link to="/Fav">You Love</Link>
+          <Link to="/Fav">★</Link>
         </li>
         <li className={splitLocation[1] === "Search" ? "active" : ""}>
           <Link to="/Search">Search</Link>

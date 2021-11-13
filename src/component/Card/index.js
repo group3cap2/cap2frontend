@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import React from "react";
+// import { useParams } from "react-router-dom";
 import "./style.css";
 
 function Card({ item, addFav, toggle }) {
-  const id = useParams().trackId;
+  // const id = useParams().trackId;
 
   return (
     <div className="Pod">
@@ -12,14 +12,14 @@ function Card({ item, addFav, toggle }) {
       <h4 id="name"> {item.trackName} </h4>
       <h3 id="art"> {item.artistName} </h3>
 
-      <button
+      {/* <button
         className="btn"
         onClick={() => {
           addFav(item.trackId);
         }, toggle}
       >
         {toggle ? "Add to Favorites" : "Remove from Favorites"}
-      </button>
+      </button> */}
     </div>
   );
 }
