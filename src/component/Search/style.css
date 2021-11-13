@@ -1,0 +1,123 @@
+.search {
+  margin-top: 5%;
+  margin-left: 10%;
+}
+
+.search input {
+  width: 50%;
+  padding: 0.3rem 4.3rem 0.3rem 0.3rem;
+  border: 1px solid #1d1d1d;
+  background: #1f1f1f;
+  font-size: 1.3rem;
+  color: rgb(210, 209, 209);
+  font-weight: 200;
+  border-radius: 0.5rem;
+  margin-right: 70px;
+}
+
+.active a {
+  background-color: red;
+  color: white;
+}
+
+input, input::-webkit-input-placeholder {
+  font-size: 1.2rem;
+}
+
+
+.search button {
+  appearance: none;
+  background-color: #FAFBFC;
+  border: 1px solid rgba(27, 31, 35, 0.15);
+  border-radius: 6px;
+  box-shadow: rgba(27, 31, 35, 0.04) 0 1px 0, rgba(255, 255, 255, 0.25) 0 1px 0 inset;
+  box-sizing: border-box;
+  color: #24292E;
+  cursor: pointer;
+  display: inline-block;
+  font-family: -apple-system, system-ui, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
+  list-style: none;
+  padding: 6px 16px;
+  position: relative;
+  transition: background-color 0.2s cubic-bezier(0.3, 0, 0.5, 1);
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  vertical-align: middle;
+  white-space: nowrap;
+  word-wrap: break-word;
+}
+
+.search button:hover {
+  background-color: #F3F4F6;
+  text-decoration: none;
+  transition-duration: 0.1s;
+}
+
+.search button:disabled {
+  background-color: #FAFBFC;
+  border-color: rgba(27, 31, 35, 0.15);
+  color: #959DA5;
+  cursor: default;
+}
+
+.search button:active {
+  background-color: #EDEFF2;
+  box-shadow: rgba(225, 228, 232, 0.2) 0 1px 0 inset;
+  transition: none 0s;
+}
+
+.search button:focus {
+  outline: 1px transparent;
+}
+
+.search button:before {
+  display: none;
+}
+
+.search button:-webkit-details-marker {
+  display: none;
+}
+
+.searchCon {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.searchCon:hover {
+  cursor: pointer;
+}
+
+h4 {
+  display: inline;
+  font-weight: 576;
+  margin-top: 2rem;
+  margin-bottom: 8px;
+  font-size: 20px;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  color: rgba(165, 165, 165, 0.283);
+  width: 300px;
+  height: 250%;
+  color: #666666;
+}
+
+h3 {
+  font-size: 15px;
+  color: rgba(165, 165, 165, 0.283);
+  width: 100%;
+  margin-bottom: 3rem;
+}
+
+.searchCon div:hover {
+  transform: scale(1.04) perspective(0.1px);
+}
+/* 
+img {
+  width: 300px;
+  height: 250%;
+} */
