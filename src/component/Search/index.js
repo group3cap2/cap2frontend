@@ -7,7 +7,7 @@ const Search = () => {
   const [result, setResult] = useState([]);
 
   const getSearched = async (e) => {
-    if (e.key === "Enter") {
+    if (e.key === "Enter" || e.keyCode === 13) {
       let myTerm = e.target.value;
       const response = await axios.get(
         `http://localhost:5000/search/${myTerm}`
