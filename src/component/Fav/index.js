@@ -13,7 +13,7 @@ const Fav = () => {
   }, []);
 
   const getFavorite = async () => {
-    const response = await axios.get("https://cap2frontend.herokuapp.com/favorite");
+    const response = await axios.get("https://cap2backend.herokuapp.com/favorite");
     // console.log(response.data);
     setFavorite(response.data);
   };
