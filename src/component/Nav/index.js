@@ -15,6 +15,8 @@ const Nav = () => {
     return (
         <div className="nav">
 
+
+
             <ul className="ulNav">
                 <li> <Link to ="/">All</Link></li>
                 <li> <Link to ="/Music">Music</Link></li>
@@ -23,7 +25,11 @@ const Nav = () => {
                 <li> <Link to ="/Fav">You Love</Link></li>
                 <li> <Link to ="/Search">Search</Link></li>
                 <li> <Link to ="/Login">Login</Link></li>
+                 <li> <div className="search">
+           <input type="text" placeholder = "Search Podcast or Music "/>
+           { /* <button  placeholder="Search">Search</button> */}
 
+            </div></li> 
             </ul>
         </div>
     )

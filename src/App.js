@@ -24,7 +24,6 @@ const App = () => {
     <>
       <Nav />
       <Routes>
-
       <Route  exact path="/" element={<Home/>} />
       <Route  exact path="/Podcast" element={<Podcast/>} />
       <Route  exact path="/Ebook" element={<Ebook/>} />
@@ -32,7 +31,6 @@ const App = () => {
       <Route  exact path="/Login" element={<Login/>} />
       <Route  exact path="/Search" element={<Search/>} />
       <Route  exact path="/Fav" element={<Fav/>} /> 
-
       </Routes>
       </>
   );
