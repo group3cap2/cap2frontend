@@ -7,7 +7,7 @@
   justify-content: flex-start;
   position: fixed;
   background: #262626;
-  padding: 0.7rem 2rem 0.5rem;
+  padding: 1.6rem 2rem 0rem;
   display: flex;
   flex-direction: column;
   margin-left: -1rem;
@@ -46,7 +46,7 @@
 }
 .nav li a:hover {
   color: #e2e2e2;
-  border-bottom: 2px solid #bc2e2e;
+  border-bottom: 2px solid orange;
   -webkit-transition: all 0.5s ease;
   -moz-transition: all 0.5s ease;
   -ms-transition: all 0.5s ease;
@@ -65,7 +65,7 @@
   margin-right: 70px;
 }
 .active a {
-  background-color: red;
+  background-color: orange;
   color: white;
 }
 input,
