@@ -10,7 +10,7 @@ function Dec() {
   const [pod, setPod] = useState("");
 
   const getPod = async () => {
-    const response = await axios.get("http://localhost:5000/media/podcast");
+    const response = await axios.get("https://cap2backend.herokuapp.com/media/podcast");
     // eslint-disable-next-line
     setPod(response.data.results.find((element) => element.trackId == id));
   };

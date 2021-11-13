@@ -12,7 +12,7 @@ const Ebook = () => {
   }, []);
   
   const getAllbooks = async () => {
-    const response = await axios.get("http://localhost:5000/media/Ebook");
+    const response = await axios.get("https://cap2backend.herokuapp.com/media/Ebook");
 
     // console.log(response.data.results);
     setAllbook(response.data.results);

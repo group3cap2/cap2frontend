@@ -15,7 +15,7 @@ const Podcast = () => {
   }, []);
 
   const getPodcast = async () => {
-    const response = await axios.get("http://localhost:5000/media/podcast");
+    const response = await axios.get("https://cap2backend.herokuapp.com/media/podcast");
 
     // console.log(response.data.results);
     setPodcast(response.data.results);
@@ -33,7 +33,7 @@ const Podcast = () => {
       if (id === item.trackId) {
         if (toggle === true) {
           axios
-            .post("http://localhost:5000/favorite/podcast", null, {
+            .post("https://cap2backend.herokuapp.com/favorite/podcast", null, {
               params: { id },
             })
             .then((response) => response.status)
@@ -41,7 +41,7 @@ const Podcast = () => {
           setToggle(false);
         } else {
           axios
-            .delete("http://localhost:5000/favorite", null, { params: { id } })
+            .delete("https://cap2backend.herokuapp.com/favorite", null, { params: { id } })
             .then((response) => response.status)
             .catch((err) => console.warn(err));
           setToggle(true);
