@@ -22,7 +22,7 @@ const Search = () => {
     <>
       <div className="search">
         <input
-          onKeyDown={ getSearched }
+          onKeyDown={getSearched}
           autoFocus
           id="search"
           placeholder="Search Book or Podcast"

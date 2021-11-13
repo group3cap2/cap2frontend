@@ -5,25 +5,24 @@ import "./style.css";
 import { useEffect } from "react";
 
 function Dec() {
-    const id = useParams().trackId;
-  
-    const [pod, setPod] = useState("");
-  
-    const getPod = async () => {
-      const response = await axios.get("http://localhost:5000/media/podcast");
-      // eslint-disable-next-line
-      setPod(response.data.results.find((element) => element.trackId == id));
-    };
-  
-    useEffect(() => {
-      getPod();
-      // eslint-disable-next-line
-    }, []);
-    console.log(pod);
-    return (
-      
-        <>     
-         {pod ? (
+  const id = useParams().trackId;
+
+  const [pod, setPod] = useState("");
+
+  const getPod = async () => {
+    const response = await axios.get("http://localhost:5000/media/podcast");
+    // eslint-disable-next-line
+    setPod(response.data.results.find((element) => element.trackId == id));
+  };
+
+  useEffect(() => {
+    getPod();
+    // eslint-disable-next-line
+  }, []);
+  console.log(pod);
+  return (
+    <>
+      {pod ? (
         <div className="1Pod">
           <p className="Podcast"> {pod.trackName}</p>
           <img src={pod.artworkUrl100} alt="mmm" />
@@ -34,7 +33,8 @@ function Dec() {
         </div>
       ) : (
         <h1>loading ...</h1>
-      )} 
-      </>
-    )}
+      )}
+    </>
+  );
+}
 export default Dec;

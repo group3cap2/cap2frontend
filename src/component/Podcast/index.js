@@ -52,16 +52,15 @@ const Podcast = () => {
 
   return (
     <div className="allPodcast">
-      
       {podcast.map((item, i) => {
         return (
-          <div className="pod"
+          <div
+            className="pod"
             key={i}
             onClick={() => {
               inside(item.trackId);
             }}
           >
-
             <img src={item.artworkUrl100} alt="movie" />
             <h4> {item.trackName} </h4>
             <h3> {item.artistName} </h3>

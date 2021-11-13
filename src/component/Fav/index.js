@@ -22,10 +22,9 @@ const Fav = () => {
     console.log(id);
     navigate(`/dec/${id}`);
   };
-  
 
   return (
-    <div className="allPodcast">
+    <div className="allbook">
       {favorite.map((item, i) => {
         return (
           <div
