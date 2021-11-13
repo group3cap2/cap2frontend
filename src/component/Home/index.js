@@ -13,7 +13,7 @@ const Home = () => {
       const getAllmedia = async () => {
           const response = await axios.get("http://localhost:5000/media");
     
-        // console.log(response.data.results);
+        console.log(response.data.results);
         setMedia(response.data.results);
       };
     

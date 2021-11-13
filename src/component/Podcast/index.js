@@ -39,7 +39,17 @@ const Podcast = () => {
               inside(item.trackId);
             }}
           >
-            <Card item={item} />
+             <img src={item.artworkUrl100} alt="movie" />
+             <h5> {item.trackName} </h5>
+             <div>
+              <button
+                onClick={() => {
+                  addFav(item.trackId);
+                }}
+              >
+                Add to Favorite
+              </button>{" "} 
+            </div>
           </div>
         );
       })}
