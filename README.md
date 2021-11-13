@@ -4,7 +4,7 @@
 This is frontend application, using iTunes free search API. Technologies used React,react-router-dom, axios.
 
 
-## heroku
+## Heroku
 https://cap2frontend.herokuapp.com/
 
 
