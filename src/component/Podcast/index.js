@@ -2,12 +2,14 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router";
 import "./style.css";
-import Modal from "react-modal"
+// import Modal from "react-modal"
 
 
 const Podcast = () => {
     const [podcast, setPodcast] = useState([]);
     const navigate = useNavigate();
+
+
   useEffect(() => {
     getPodcast();
   }, []);
@@ -20,7 +22,7 @@ const Podcast = () => {
 
   const inside = ( id ) => {
       console.log(id);
-      navigate(`/Pod/${id}`)
+      navigate(`/Pod/${id}` )
   }
 
   const addFav = (id) => {
@@ -28,23 +30,25 @@ const Podcast = () => {
   }
 
   return (
+    
     <div className="allPodcast">
-        {podcast.map((pod) => {
+        {podcast.map((pod,i) => {
             return (
           <div className="Pod">
-              <div onClick={() => {
+              <div key = {i} onClick={() => {
             inside(pod.trackId);
           }}>
-            {/* <div className="singlePodcast"> */}
+
             <img
               className="PodImg"
               src={pod.artworkUrl100}
               alt="podcasts"/>
 
-         <h6> {pod.trackName} </h6>
+         <h4 id="name"> {pod.trackName} </h4>
+         <h3 id="art"> {pod.artistName} </h3>
          </div>
          <div>
-             <button
+             <button className="btn"
                 onClick={() => {
                   addFav(pod.trackId);
                 }}> Add to Favorite </button>{" "}
