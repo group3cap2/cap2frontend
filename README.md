@@ -1,4 +1,14 @@
-# Getting Started with Create React App
+#cap2frontend
+
+## About
+This is frontend application, using iTunes free search API. Technologies used React,react-router-dom, axios.
+
+
+## heroku
+https://cap2frontend.herokuapp.com/
+
+
+## Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
