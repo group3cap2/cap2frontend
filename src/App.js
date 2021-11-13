@@ -9,6 +9,7 @@ import Ebook from "./component/Ebook";
 import Fav from "./component/Fav";
 import Card from "./component/Card";
 import Dec from "./component/Dec";
+import Search from "./component/Search"
 import "./App.css";
 
 const App = () => {
@@ -24,6 +25,7 @@ const App = () => {
         <Route exact path="/Card/:trackId" element={<Card />} />
         <Route exact path="/dec/:trackId" element={<Dec />} />
         <Route exact path="/Fav" element={<Fav />} />
+        <Route exact path="/Search" element={<Search />} />
         {/*<Route  exact path="/Login" element={<Login/>} /> */}
       </Routes>
     </>

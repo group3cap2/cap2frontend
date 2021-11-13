@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router";
-import axios from "axios";
 import Card from "./../Card";
+import axios from "axios";
 import "./style.css";
 // import Modal from "react-modal"
 
 const Podcast = () => {
   const [podcast, setPodcast] = useState([]);
+  const [toggle, setToggle] = useState(true);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -26,7 +27,25 @@ const Podcast = () => {
   };
 
   const addFav = (id) => {
-    console.log(id);
+    podcast.map((item) => {
+      if (id === item.trackId) {
+        if (toggle === true) {
+          axios
+            .post("http://localhost:5000/favorite/podcast", null, {
+              params: { id },
+            })
+            .then((response) => response.status)
+            .catch((err) => console.warn(err));
+          setToggle(false);
+        } else {
+          axios
+            .delete("http://localhost:5000/favorite", null, { params: { id } })
+            .then((response) => response.status)
+            .catch((err) => console.warn(err));
+          setToggle(true);
+        }
+      }
+    });
   };
 
   return (
@@ -35,11 +54,15 @@ const Podcast = () => {
         return (
           <div
             key={i}
-            onClick={() => {
-              inside(item.trackId);
-            }}
+            // onClick={() => {
+            //   inside(item.trackId);
+            // }}
           >
-            <Card item={item} />
+            <Card
+              item={item}
+              addFav={() => addFav(item.trackId)}
+              toggle={toggle}
+            />
           </div>
         );
       })}
