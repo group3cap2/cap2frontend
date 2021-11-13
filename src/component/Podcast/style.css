@@ -1,30 +1,21 @@
 .allPodcast {
-  display: flex;  
+  display: flex;
   justify-content: center;
   flex-wrap: wrap;
   align-items: center;
   margin-top: 6rem;
- 
 }
 
-.allPodcast:hover{
- cursor: pointer;
- 
+.allPodcast:hover {
+  cursor: pointer;
 }
-/* .allMovies div  {
-  width: 200px;
-  height: 300px;   
-  margin: 15px; 
-  padding: 15px;
-  background-color: rgba(167, 156, 156, 0.061);
-} */
 
-.pod{
+.pod {
   width: 200px;
   height: 310px;
   margin: 15px;
   padding-bottom: 150px;
-  transition: 0.5s ease; 
+  transition: 0.5s ease;
   align-items: center;
 }
 
@@ -33,9 +24,9 @@
 }
 
 .allPodcast div img {
-    margin-top: 30px;
-    width: 100%;
-    height: 100%;
+  margin-top: 30px;
+  width: 100%;
+  height: 100%;
 }
 
 h4 {
@@ -45,6 +36,6 @@ h4 {
 
 h3 {
   font-size: 0.7rem;
-  color:rgba(80, 80, 80, 0.851);
+  color: rgba(80, 80, 80, 0.851);
   margin-top: 0rem;
 }

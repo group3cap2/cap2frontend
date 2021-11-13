@@ -10,7 +10,7 @@ import Fav from "./component/Fav";
 import Card from "./component/Card";
 import Dec from "./component/Dec";
 import OneBook from "./component/OneBook";
-import Search from "./component/Search"
+import Search from "./component/Search";
 import "./App.css";
 
 const App = () => {

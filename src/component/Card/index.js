@@ -6,7 +6,7 @@ function Card({ item, addFav, toggle }) {
   // const id = useParams().trackId;
 
   return (
-    <div className="Pod">
+    <div className="all">
       <img className="PodImg" src={item.artworkUrl100} alt="podcasts" />
 
       <h4 id="name"> {item.trackName} </h4>
