@@ -3,6 +3,8 @@ import axios from "axios";
 import { useNavigate } from "react-router";
 import "./style.css";
 import Modal from "react-modal"
+
+
 const Podcast = () => {
     const [podcast, setPodcast] = useState([]);
     const navigate = useNavigate();
@@ -15,30 +17,42 @@ const Podcast = () => {
     // console.log(response.data.results);
     setPodcast(response.data.results);
   };
+
+  const inside = ( id ) => {
+      console.log(id);
+      navigate(`/Pod/${id}`)
+  }
+
+  const addFav = (id) => {
+      console.log(id);
+  }
+
   return (
-    <div className="mediaWrapper">
-      <h1>Podcast</h1>
-      <div className="Podcast">
-        {podcast.map((item, i) => (
-          <div className="Pod" key={i} onClick={() => {
-            navigate("/Podcast/open", { state: item });
+    <div className="allPodcast">
+        {podcast.map((pod) => {
+            return (
+          <div className="Pod">
+              <div onClick={() => {
+            inside(pod.trackId);
           }}>
+            {/* <div className="singlePodcast"> */}
             <img
-              key={`img-${i}`}
               className="PodImg"
-              src={item.artworkUrl100}
-              alt={`Img-${i}`}
-            />
-            <p className="podName" key={`trackN-${i}`}>
-              <b>{item.trackName}</b>
-            </p>
-            <p className="artistName" key={`artN-${i}`}>
-              {item.artistName}
-            </p>
-          </div>
-        ))}
-      </div>
-    </div>
-  );
-}
+              src={pod.artworkUrl100}
+              alt="podcasts"/>
+
+         <h6> {pod.trackName} </h6>
+         </div>
+         <div>
+             <button
+                onClick={() => {
+                  addFav(pod.trackId);
+                }}> Add to Favorite </button>{" "}
+         </div>
+         </div>
+            );
+            })}
+        </div>
+        );
+        }
 export default Podcast;
