@@ -10,7 +10,7 @@ const Search = () => {
     if (e.key === "Enter") {
       let myTerm = e.target.value;
       const response = await axios.get(
-        `https://cap2backend.herokuapp.com/search/${myTerm}`
+        `http://localhost:5000/search/${myTerm}`
       );
       setResult(response.data.results);
     }

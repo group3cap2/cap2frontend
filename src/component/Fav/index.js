@@ -7,20 +7,39 @@ import axios from "axios";
 const Fav = () => {
   const [favorite, setFavorite] = useState([]);
   const navigate = useNavigate();
+  const [toggle, setToggle] = useState(true);
+
 
   useEffect(() => {
     getFavorite();
   }, []);
 
   const getFavorite = async () => {
-    const response = await axios.get("https://cap2backend.herokuapp.com/favorite");
+    const response = await axios.get("http://localhost:5000/favorite");
     // console.log(response.data);
     setFavorite(response.data);
   };
 
-  const inside = (id) => {
-    console.log(id);
-    navigate(`/dec/${id}`);
+  const addFav = (id) => {
+    // eslint-disable-next-line
+    console.log(id, favorite.trackId)
+    if (id === favorite.trackId) {
+      if (toggle === true) {
+        axios
+          .post("http://localhost:5000/favorite/podcast", null, {
+            params: { id },
+          })
+          .then((response) => response.status)
+          .catch((err) => console.warn(err));
+        setToggle(false);
+      } else {
+        axios
+          .delete(`http://localhost:5000/favorite/${id}`)
+          .then((response) => response.status)
+          .catch((err) => console.warn(err));
+        setToggle(true);
+      }
+    }
   };
 
   return (
@@ -28,13 +47,14 @@ const Fav = () => {
       {favorite.map((item, i) => {
         return (
           <div
-            key={i}
-            onClick={() => {
-              inside(item.trackId);
-            }}
+            // key={i}
+            // onClick={() => {
+            //   inside(item.trackId);
+            // }}
           >
-            <Card item={item} />
+            <Card item={item} addFav={()=> addFav()}/>
           </div>
+          
         );
       })}
     </div>

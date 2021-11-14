@@ -10,7 +10,7 @@ const Home = () => {
     getAllmedia();
   }, []);
   const getAllmedia = async () => {
-    const response = await axios.get("https://cap2backend.herokuapp.com/media/AudioBook");
+    const response = await axios.get("http://localhost:5000/media/AudioBook");
 
     // console.log(response.data.results);
     setMedia(response.data.results);
@@ -27,7 +27,7 @@ const Home = () => {
 
   return (
     <div className="allMedia">
-      {allMedia.map((all) => {
+      {allMedia.map((all,i) => {
         return (
           <div className="all">
             <div
