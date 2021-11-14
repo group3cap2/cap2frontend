@@ -10,7 +10,7 @@ const Music = () => {
   }, []);
 
   const getAllMusic = async () => {
-    const response = await axios.get("http://localhost:5000/media/Music");
+    const response = await axios.get("https://cap2backend.herokuapp.com/media/Music");
 
     // console.log(response.data.results);
     setAllMusic(response.data.results);
