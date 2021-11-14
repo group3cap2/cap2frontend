@@ -15,7 +15,7 @@ const Podcast = () => {
   }, []);
 
   const getPodcast = async () => {
-    const response = await axios.get("https://cap2backend.herokuapp.com/media/podcast");
+    const response = await axios.get("http://localhost:5000/media/podcast");
 
     // console.log(response.data.results);
     setPodcast(response.data.results);
@@ -33,7 +33,7 @@ const Podcast = () => {
       if (id === item.trackId) {
         if (toggle === true) {
           axios
-            .post("https://cap2backend.herokuapp.com/favorite/podcast", null, {
+            .post("http://localhost:5000/favorite/podcast", null, {
               params: { id },
             })
             .then((response) => response.status)
@@ -41,7 +41,7 @@ const Podcast = () => {
           setToggle(false);
         } else {
           axios
-            .delete("https://cap2backend.herokuapp.com/favorite", null, { params: { id } })
+            .delete("http://localhost:5000/favorite", null, { params: { id } })
             .then((response) => response.status)
             .catch((err) => console.warn(err));
           setToggle(true);
@@ -52,15 +52,16 @@ const Podcast = () => {
 
   return (
     <div className="allPodcast">
+      
       {podcast.map((item, i) => {
         return (
-          <div
-            className="pod"
+          <div className="pod"
             key={i}
             onClick={() => {
               inside(item.trackId);
             }}
           >
+
             <img src={item.artworkUrl100} alt="movie" />
             <h4> {item.trackName} </h4>
             <h3> {item.artistName} </h3>

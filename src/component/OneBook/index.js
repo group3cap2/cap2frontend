@@ -10,7 +10,7 @@ function OneBook() {
   const [oneBook, setOneBook] = useState("");
 
   const getOnebook = async () => {
-    const response = await axios.get("https://cap2backend.herokuapp.com/media/Ebook");
+    const response = await axios.get("http://localhost:5000/media/Ebook");
     // eslint-disable-next-line
     setOneBook(response.data.results.find((element) => element.trackId == id));
   };
