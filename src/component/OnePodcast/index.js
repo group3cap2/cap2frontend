@@ -6,13 +6,15 @@ import "./style.css";
 function OnePodcast() {
   const id = useParams().trackId;
   const [pod, setPod] = useState("");
-  const [isFav, setIsFav] = useState();
+  const [isFav, setIsFav] = useState(false);
   const [favorite, setFavorite] = useState([]);
 
   useEffect(() => {
     getPod();
     getFavorite();
-  }, []);
+    fav();
+  },     // eslint-disable-next-line
+  []);
 
   const getPod = async () => {
     const response = await axios.get("https://cap2backend.herokuapp.com/media/podcast");
@@ -21,14 +23,10 @@ function OnePodcast() {
   };
 
   const fav = () => {
-    favorite.map((item) => {
+    favorite.forEach((item) => {
       if (item.trackId === pod.trackId) {
-        console.log(item.trackId);
-        console.log(pod.trackId);
         setIsFav(true);
       } else {
-        console.log(item.trackId);
-        console.log(pod.trackId);
         setIsFav(false);
       }
     });
@@ -37,7 +35,15 @@ function OnePodcast() {
   const getFavorite = async () => {
     const response = await axios.get("https://cap2backend.herokuapp.com/favorite");
     setFavorite(response.data);
-    response.data.find((element) => element.trackId == id);
+    // response.data.find((element) => element.trackId == id);
+
+    favorite.forEach((item) => {
+      if (item.trackId === pod.trackId) {
+        setIsFav(true);
+      } else {
+        setIsFav(false);
+      }
+    });
   };
 
   const addFav = (id) => {
@@ -51,18 +57,17 @@ function OnePodcast() {
           })
           .then((response) => response.status)
           .catch((err) => console.warn(err));
-          setIsFav(true);
+        setIsFav(true);
       } else {
         axios
           .delete(`https://cap2backend.herokuapp.com/favorite/${id}`)
           .then((response) => response.status)
           .catch((err) => console.warn(err));
-          setIsFav(false);
+        setIsFav(false);
       }
     }
   };
 
-  console.log(pod);
   return (
     <>
       {pod ? (
