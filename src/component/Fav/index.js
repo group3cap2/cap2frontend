@@ -1,14 +1,11 @@
 import React, { useState, useEffect } from "react";
-import { useNavigate } from "react-router";
 import Card from "./../Card";
 import axios from "axios";
 // import "./style.css";
 
 const Fav = () => {
   const [favorite, setFavorite] = useState([]);
-  const navigate = useNavigate();
-  const [toggle, setToggle] = useState(true);
-
+  const [isFav, setIsFav] = useState(true);
 
   useEffect(() => {
     getFavorite();
@@ -22,24 +19,17 @@ const Fav = () => {
 
   const addFav = (id) => {
     // eslint-disable-next-line
-    console.log(id, favorite.trackId)
-    if (id === favorite.trackId) {
-      if (toggle === true) {
-        axios
-          .post("https://cap2backend.herokuapp.com/favorite/podcast", null, {
-            params: { id },
-          })
-          .then((response) => response.status)
-          .catch((err) => console.warn(err));
-        setToggle(false);
-      } else {
+    favorite.map((item, i) => {
+      if (id === item.trackId) {
+        console.log(id, item.trackId);
         axios
           .delete(`https://cap2backend.herokuapp.com/favorite/${id}`)
           .then((response) => response.status)
           .catch((err) => console.warn(err));
-        setToggle(true);
+          setIsFav(false);
+          favorite.splice(i, 1);
       }
-    }
+    });
   };
 
   return (
@@ -47,14 +37,23 @@ const Fav = () => {
       {favorite.map((item, i) => {
         return (
           <div
-            // key={i}
+            key={i}
             // onClick={() => {
             //   inside(item.trackId);
             // }}
           >
-            <Card item={item} addFav={()=> addFav()}/>
+            <Card item={item} addFav={() => addFav()} />
+            <div>
+              <button
+                className="btn"
+                onClick={() => {
+                  addFav(item.trackId);
+                }}
+              >
+                {isFav ? "Remove from Favorites" : "Add to Favorites"}
+              </button>
+            </div>
           </div>
-          
         );
       })}
     </div>

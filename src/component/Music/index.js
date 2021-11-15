@@ -23,10 +23,6 @@ const Music = () => {
     navigate(`/OneMusic/${id}`);
   };
 
-  const addFav = (id) => {
-    console.log(id);
-  };
-
   return (
     <div className="allbook">
       {allMusic.map((book, i) => {

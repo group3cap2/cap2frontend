@@ -1,8 +1,7 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 import "./style.css";
-import { useEffect } from "react";
 
 function OneMusic() {
   const id = useParams().trackId;
@@ -14,7 +13,8 @@ function OneMusic() {
     getOneMusic();
     getFavorite();
     fav();
-  }, []);
+  },     // eslint-disable-next-line
+  []);
 
   const getOneMusic = async () => {
     const response = await axios.get("https://cap2backend.herokuapp.com/media/Music");
@@ -23,7 +23,7 @@ function OneMusic() {
   };
 
   const fav = () => {
-    favorite.map((item) => {
+    favorite.forEach((item) => {
       if (item.trackId === oneMusic.trackId) {
         setIsFav(true);
       } else {
@@ -36,7 +36,7 @@ function OneMusic() {
     const response = await axios.get("https://cap2backend.herokuapp.com/favorite");
     setFavorite(response.data);
 
-    favorite.map((item) => {
+    favorite.forEach((item) => {
       if (item.trackId === oneMusic.trackId) {
         setIsFav(true);
       } else {
