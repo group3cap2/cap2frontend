@@ -5,42 +5,67 @@ import "./style.css";
 import { useEffect } from "react";
 
 function OneMusic() {
-    const id = useParams().trackId;
-    const [toggle, setToggle] = useState(true);
+  const id = useParams().trackId;
   const [oneMusic, setOneMusic] = useState("");
+  const [isFav, setIsFav] = useState(false);
+  const [favorite, setFavorite] = useState([]);
+
+  useEffect(() => {
+    getOneMusic();
+    getFavorite();
+    fav();
+  }, []);
 
   const getOneMusic = async () => {
-    const response = await axios.get("http://localhost:5000/media/Music");
+    const response = await axios.get("https://cap2backend.herokuapp.com/media/Music");
     // eslint-disable-next-line
     setOneMusic(response.data.results.find((element) => element.trackId == id));
   };
 
+  const fav = () => {
+    favorite.map((item) => {
+      if (item.trackId === oneMusic.trackId) {
+        setIsFav(true);
+      } else {
+        setIsFav(false);
+      }
+    });
+  };
+
+  const getFavorite = async () => {
+    const response = await axios.get("https://cap2backend.herokuapp.com/favorite");
+    setFavorite(response.data);
+
+    favorite.map((item) => {
+      if (item.trackId === oneMusic.trackId) {
+        setIsFav(true);
+      } else {
+        setIsFav(false);
+      }
+    });
+  };
+
   const addFav = (id) => {
     // eslint-disable-next-line
-      if (id === oneMusic.trackId) {
-        if (toggle === true) {
-          axios
-            .post("http://localhost:5000/favorite/music", null, {
-              params: { id },
-            })
-            .then((response) => response.status)
-            .catch((err) => console.warn(err));
-          setToggle(false);
-        } else {
-          axios
-            .delete("http://localhost:5000/favorite", null, { params: { id } })
-            .then((response) => response.status)
-            .catch((err) => console.warn(err));
-          setToggle(true);
-        }
+    if (id === oneMusic.trackId) {
+      if (isFav === false) {
+        axios
+          .post("https://cap2backend.herokuapp.com/favorite/Music", null, {
+            params: { id },
+          })
+          .then((response) => response.status)
+          .catch((err) => console.warn(err));
+          setIsFav(true);
+      } else {
+        axios
+          .delete(`https://cap2backend.herokuapp.com/favorite/${id}`)
+          .then((response) => response.status)
+          .catch((err) => console.warn(err));
+          setIsFav(false);
       }
-  
+    }
   };
-  useEffect(() => {
-    getOneMusic();
-    // eslint-disable-next-line
-  }, []);
-  console.log(OneMusic);
+
   return (
     <>
       {oneMusic ? (
@@ -53,15 +78,16 @@ function OneMusic() {
           </audio>
 
           <div>
-               <button className="btn"
-                onClick={() => {
-                  addFav(oneMusic.trackId);
-                }}>
-        {toggle ? "Add to Favorites" : "Remove from Favorites"}
-              </button>{" "} 
-              </div> 
+            <button
+              className="btn"
+              onClick={() => {
+                addFav(oneMusic.trackId);
+              }}
+            >
+              {isFav ? "Remove from Favorites" : "Add to Favorites"}
+            </button>
+          </div>
         </div>
-        
       ) : (
         <h1>loading ...</h1>
       )}

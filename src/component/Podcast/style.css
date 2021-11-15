@@ -30,12 +30,21 @@
 }
 
 h4 {
-  color: rgba(199, 199, 199, 0.845);
-  margin-bottom: 0.1rem;
+  display: inline;
+  font-weight: 576;
+  margin-top: 2rem;
+  margin-bottom: 8px;
+  font-size: 16px;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  color: rgba(165, 165, 165, 0.283);
+  width: 300px;
+  height: 100%;
+  color: #666666;
 }
 
 h3 {
-  font-size: 0.7rem;
-  color: rgba(80, 80, 80, 0.851);
-  margin-top: 0rem;
+  font-size: 15px;
+  color: rgba(165, 165, 165, 0.283);
+  width: 100%;
+  margin-bottom: 3rem;
 }

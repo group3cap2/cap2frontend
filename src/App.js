@@ -8,7 +8,7 @@ import Movie from "./component/Movie";
 import Ebook from "./component/Ebook";
 import Fav from "./component/Fav";
 import Card from "./component/Card";
-import Dec from "./component/Dec";
+import OnePodcast from "./component/OnePodcast";
 import OneBook from "./component/OneBook";
 import OneMusic from "./component/OneMusic";
 import Search from "./component/Search";
@@ -25,7 +25,7 @@ const App = () => {
         <Route exact path="/Music" element={<Music />} />
         <Route exact path="/Movie" element={<Movie />} />
         <Route exact path="/Card/:trackId" element={<Card />} />
-        <Route exact path="/Dec/:trackId" element={<Dec />} />
+        <Route exact path="/OnePodcast/:trackId" element={<OnePodcast />} />
         <Route exact path="/OneBook/:trackId" element={<OneBook />} />
         <Route exact path="/OneMusic/:trackId" element={<OneMusic />} />
         <Route exact path="/Fav" element={<Fav />} />

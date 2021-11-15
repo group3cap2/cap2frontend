@@ -7,73 +7,89 @@ import "./style.css";
 
 const Podcast = () => {
   const [podcast, setPodcast] = useState([]);
-  const [toggle, setToggle] = useState(true);
+  const [isFav, setIsFav] = useState();
+  const [favorite, setFavorite] = useState([]);
   const navigate = useNavigate();
 
   useEffect(() => {
     getPodcast();
+    getFavorite();
+    fav();
   }, []);
 
   const getPodcast = async () => {
-    const response = await axios.get("http://localhost:5000/media/podcast");
-
-    // console.log(response.data.results);
+    const response = await axios.get("https://cap2backend.herokuapp.com/media/podcast");
     setPodcast(response.data.results);
   };
 
   const inside = (id) => {
-    console.log(id);
-    navigate(`/Dec/${id}`);
+    navigate(`/OnePodcast/${id}`);
   };
 
-  // eslint-disable-next-line
-  const addFav = (id) => {
-    // eslint-disable-next-line
-    podcast.map((item) => {
-      if (id === item.trackId) {
-        if (toggle === true) {
-          axios
-            .post("http://localhost:5000/favorite/podcast", null, {
-              params: { id },
-            })
-            .then((response) => response.status)
-            .catch((err) => console.warn(err));
-          setToggle(false);
+  const fav = () => {
+    favorite.map((item, i) => {
+      podcast.map((ele, i) => {
+        if (item.trackId === ele.trackId) {
+          setIsFav(true);
         } else {
-          axios
-            .delete("http://localhost:5000/favorite", null, { params: { id } })
-            .then((response) => response.status)
-            .catch((err) => console.warn(err));
-          setToggle(true);
+          setIsFav(false);
         }
+      });
+    });
+  };
+
+  const getFavorite = async () => {
+    const response = await axios.get("https://cap2backend.herokuapp.com/favorite");
+    setFavorite(response.data);
+  };
+
+  const addFav = (id) => {
+    favorite.map((item) => {
+      if (id === item.trackId) {
+        axios
+          .post("https://cap2backend.herokuapp.com/favorite/podcast", null, {
+            params: { id },
+          })
+          .then((response) => response.status)
+          .catch((err) => console.warn(err));
+        setIsFav(true);
+      } else {
+        axios
+          .delete(`https://cap2backend.herokuapp.com/favorite/${id}`)
+          .then((response) => response.status)
+          .catch((err) => console.warn(err));
+        setIsFav(false);
       }
     });
   };
 
   return (
     <div className="allPodcast">
-      
       {podcast.map((item, i) => {
         return (
-          <div className="pod"
-            key={i}
-            onClick={() => {
-              inside(item.trackId);
-            }}
-          >
-
-            <img src={item.artworkUrl100} alt="movie" />
+          <div key={i} className="pod">
+            <img
+              src={item.artworkUrl100}
+              alt="movie"
+              onClick={() => {
+                inside(item.trackId);
+              }}
+            />
             <h4> {item.trackName} </h4>
             <h3> {item.artistName} </h3>
-
-            {/* <div>
-             {/*  <button
-                onClick={() => {
-                  addFav(item.trackId);
-                }}>
-                Add to Favorite
-              </button>{" "}
-              </div> */}
+            {
+              // <div>
+              //   {
+              //     <button
+              //       onClick={() => {
+              //         addFav(item.trackId);
+              //       }}
+              //     >
+              //       {isFav ? "Remove from Favorites" : "Add to Favorites"}
+              //     </button>
+              //   }
+              // </div>
+            }
           </div>
         );
       })}

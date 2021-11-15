@@ -16,3 +16,13 @@ h2 {
   color: rgb(191, 190, 190);
   text-align: center;
 }
+
+.btn {
+  border-radius: 1rem;
+  padding: 0.6rem 0.8rem;
+  margin: 0 auto;
+  margin-top: 1.5rem;
+  margin-bottom: 1.6rem;
+  border: 0;
+  display: block;
+}

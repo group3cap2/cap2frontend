@@ -12,7 +12,7 @@ const Music = () => {
   }, []);
 
   const getAllMusic = async () => {
-    const response = await axios.get("http://localhost:5000/media/Music");
+    const response = await axios.get("https://cap2backend.herokuapp.com/media/Music");
 
     // console.log(response.data.results);
     setAllMusic(response.data.results);
@@ -29,9 +29,9 @@ const Music = () => {
 
   return (
     <div className="allbook">
-      {allMusic.map((book) => {
+      {allMusic.map((book, i) => {
         return (
-          <div className="all">
+          <div key={i} className="all">
             <div>
               {/* <div className="singlePodcast"> */}
               <img

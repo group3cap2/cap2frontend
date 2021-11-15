@@ -18,14 +18,14 @@ const Nav = () => {
         <li className={splitLocation[1] === "" ? "active" : ""}>
           <Link to="/">All</Link>{" "}
         </li>
+        <li className={splitLocation[1] === "Music" ? "active" : ""}>
+          <Link to="/Music">Music</Link>
+        </li>
         <li className={splitLocation[1] === "Podcast" ? "active" : ""}>
           <Link to="/Podcast">Podcast</Link>
         </li>
         <li className={splitLocation[1] === "Ebook" ? "active" : ""}>
           <Link to="/Ebook">Ebook</Link>
-        </li>
-        <li className={splitLocation[1] === "Music" ? "active" : ""}>
-          <Link to="/Music">Music</Link>
         </li>
         <li className={splitLocation[1] === "Movie" ? "active" : ""}>
           <Link to="/Movie">Movies</Link>

@@ -15,7 +15,7 @@ const Fav = () => {
   }, []);
 
   const getFavorite = async () => {
-    const response = await axios.get("http://localhost:5000/favorite");
+    const response = await axios.get("https://cap2backend.herokuapp.com/favorite");
     // console.log(response.data);
     setFavorite(response.data);
   };
@@ -26,7 +26,7 @@ const Fav = () => {
     if (id === favorite.trackId) {
       if (toggle === true) {
         axios
-          .post("http://localhost:5000/favorite/podcast", null, {
+          .post("https://cap2backend.herokuapp.com/favorite/podcast", null, {
             params: { id },
           })
           .then((response) => response.status)
@@ -34,7 +34,7 @@ const Fav = () => {
         setToggle(false);
       } else {
         axios
-          .delete(`http://localhost:5000/favorite/${id}`)
+          .delete(`https://cap2backend.herokuapp.com/favorite/${id}`)
           .then((response) => response.status)
           .catch((err) => console.warn(err));
         setToggle(true);

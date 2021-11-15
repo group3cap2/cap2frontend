@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { useParams } from "react-router-dom";
+import { useEffect } from "react";
 import axios from "axios";
 import "./style.css";
-import { useEffect } from "react";
 
 function OneBook() {
   const id = useParams().trackId;
@@ -10,7 +10,7 @@ function OneBook() {
   const [oneBook, setOneBook] = useState("");
 
   const getOnebook = async () => {
-    const response = await axios.get("http://localhost:5000/media/Ebook");
+    const response = await axios.get("https://cap2backend.herokuapp.com/media/Ebook");
     // eslint-disable-next-line
     setOneBook(response.data.results.find((element) => element.trackId == id));
   };

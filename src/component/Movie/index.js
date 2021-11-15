@@ -10,7 +10,7 @@ const Movie = () => {
   }, []);
 
   const getAllMovie = async () => {
-    const response = await axios.get("http://localhost:5000/media/Movie");
+    const response = await axios.get("https://cap2backend.herokuapp.com/media/Movie");
 
     // console.log(response.data.results);
     setAllMovie(response.data.results);

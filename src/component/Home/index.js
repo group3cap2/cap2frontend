@@ -10,7 +10,7 @@ const Home = () => {
     getAllmedia();
   }, []);
   const getAllmedia = async () => {
-    const response = await axios.get("http://localhost:5000/media/AudioBook");
+    const response = await axios.get("https://cap2backend.herokuapp.com/media/AudioBook");
 
     // console.log(response.data.results);
     setMedia(response.data.results);
